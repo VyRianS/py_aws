@@ -5,6 +5,8 @@ import boto3
 
 s3 = boto3.resource('s3')
 
+# TODO: Add internal function to check existance of bucket, object, or local dir
+
 def s3_list_buckets():
     if len(list(s3.buckets.all())) == 0:
         print('WARNING: No S3 buckets available.')
