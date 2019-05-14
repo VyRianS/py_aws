@@ -12,8 +12,7 @@ def s3_list_buckets():
     else:
         bucket_list = []
         for bucket in s3.buckets.all():
-            print(bucket.name)
-            bucket_list.append(bucket)
+            bucket_list.append(bucket.name)
         return bucket_list
 
 def s3_list_bucket_objects(bucket_name):
@@ -23,7 +22,6 @@ def s3_list_bucket_objects(bucket_name):
     else:
         object_list = []
         for object in s3.Bucket(bucket_name).objects.all():
-            print(object.key)
             object_list.append(object.key)
         return object_list
 
@@ -50,6 +48,6 @@ def s3_download_bucket_object(bucket_name, object_name, output_path, overwrite =
     return 1
 
 if __name__ == '__main__':
-    s3_list_buckets()
-    s3_list_bucket_objects('py-aws-testing')
+    print(s3_list_buckets())
+    print(s3_list_bucket_objects('py-aws-testing'))
     s3_download_bucket_object('py-aws-testing','asd.txt','/home/code/asd.txt')
